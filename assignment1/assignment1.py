@@ -43,7 +43,7 @@ def main():
     print(wallet2address)
 
     #Listing available wallets to prove they have been created
-    print(postRequest(LISTWALLETS, url))
+    #print(postRequest(LISTWALLETS, url))
 
     #generating 101 bitcoin (at least 101 are required since the first 100 aren't going to be verified, and will be listed as "untrusted".)
     #This is of course a dev only RPC call, and isn't listed in the RPC cheatsheet, annoyingly.
@@ -61,6 +61,10 @@ def main():
     #check balances again. Will show the 25 coins on the second wallet as "untrusted" for the same reason as mentioned above.
     print(postRequest({"jsonrpc": "1.0", "id": "curltest", "method": "getbalances", "params": []},url+"/wallet/"+wallet1name))
     print(postRequest({"jsonrpc": "1.0", "id": "curltest", "method": "getbalances", "params": []},url+"/wallet/"+wallet2name))
+
+    #List transactions from wallet 1
+    print(postRequest({"jsonrpc": "1.0", "id": "curltest", "method": "listtransactions", "params": ["*", 20, 100]},url+"/wallet/"+wallet1name))
+    
 
 
 if __name__ == "__main__":

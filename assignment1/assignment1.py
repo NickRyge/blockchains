@@ -43,7 +43,7 @@ def main():
     print(wallet2address)
 
     #Listing available wallets to prove they have been created
-    #print(postRequest(LISTWALLETS, url))
+    print(postRequest(LISTWALLETS, url))
 
     #generating 101 bitcoin (at least 101 are required since the first 100 aren't going to be verified, and will be listed as "untrusted".)
     #This is of course a dev only RPC call, and isn't listed in the RPC cheatsheet, annoyingly.
